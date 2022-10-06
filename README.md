@@ -10,14 +10,13 @@ func Separate(N interface{}, lang string) (string, error)
 
 Examples:
 ```
-n := 5000.61
-
-fmt.Println("English notation: " + thousands.Separate(n, "en"))
-
-// English notation: 5,000.61
-
-fmt.Println("Deutsche Ausgabe: " + thousands.Separate(n, "de"))
-
-// Deutsche Ausgabe: 5.000,61
+    n := 1023.123456789
+	output_en, _ := Separate(n, "en")
+	output_de, _ := Separate(n, "de")
+	fmt.Println(output_en)
+	fmt.Println(output_de)
+	// Output:
+	// 1,023.123456789
+	// 1.023,123456789
 
 ```

@@ -21,14 +21,16 @@ func Separate(N interface{}, lang ...string) (string, error) {
 
 	// convert to a string
 	n := fmt.Sprintf("%v", N)
-	
+	// TO-DO deal with scientific notation
+	//	n := fmt.Sprint(strconv.FormatFloat(float64(N), 'f', -1, 64))
+
 	// if lang moitted English is default
 	if len(lang) < 1 {
 		lang[0] = "en"
 	}
 
 	switch lang[0] {
-case "de":
+	case "de":
 
 		n = strings.ReplaceAll(n, ",", ".")
 
@@ -58,7 +60,7 @@ case "de":
 		}
 
 		return n, nil
-		
+
 	case "en":
 
 		n = strings.ReplaceAll(n, ",", "")
