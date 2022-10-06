@@ -15,21 +15,20 @@ func Separate(N interface{}, lang ...string) (string, error) {
 	case int8:
 	case float32:
 	case float64:
-
 	default:
 		return "", fmt.Errorf("Not a valid number!")
-
 	}
 
+	// convert to a string
 	n := fmt.Sprintf("%v", N)
-
+	
+	// if lang moitted English is default
 	if len(lang) < 1 {
 		lang[0] = "en"
 	}
 
 	switch lang[0] {
-
-	case "de":
+case "de":
 
 		n = strings.ReplaceAll(n, ",", ".")
 
@@ -38,15 +37,12 @@ func Separate(N interface{}, lang ...string) (string, error) {
 		if strings.Index(n, ".") != -1 {
 			dec = n[strings.Index(n, ".")+1 : len(n)]
 			n = n[0:strings.Index(n, ".")]
-
 		}
 
 		for i := 0; i <= len(n); i = i + 4 {
-
 			a := n[0 : len(n)-i]
 			b := n[len(n)-i : len(n)]
 			n = a + "." + b
-
 		}
 
 		if n[0:1] == "." {
@@ -62,7 +58,7 @@ func Separate(N interface{}, lang ...string) (string, error) {
 		}
 
 		return n, nil
-
+		
 	case "en":
 
 		n = strings.ReplaceAll(n, ",", "")
@@ -76,11 +72,9 @@ func Separate(N interface{}, lang ...string) (string, error) {
 		}
 
 		for i := 0; i <= len(n); i = i + 4 {
-
 			a := n[0 : len(n)-i]
 			b := n[len(n)-i : len(n)]
 			n = a + "," + b
-
 		}
 
 		if n[0:1] == "," {
@@ -96,9 +90,6 @@ func Separate(N interface{}, lang ...string) (string, error) {
 		}
 
 		return n, nil
-
 	}
-
 	return n, nil
-
 }
