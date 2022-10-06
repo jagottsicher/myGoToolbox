@@ -2,6 +2,7 @@ package myGoToolbox
 
 import (
 	"fmt"
+	"strconv"
 	"strings"
 )
 
@@ -22,9 +23,14 @@ func Separate(N interface{}, lang ...string) (string, error) {
 	// convert to a string
 	n := fmt.Sprintf("%v", N)
 	// TO-DO deal with scientific notation
+	if strings.Contains(n, "e") {
+		nAsFlaot64, _ := strconv.ParseFloat(n, 64)
+		n = strconv.FormatFloat(nAsFlaot64, 'f', -1, 64)
+	}
+
 	//	n := fmt.Sprint(strconv.FormatFloat(float64(N), 'f', -1, 64))
 
-	// if lang moitted English is default
+	// if lang omitted English is default
 	if len(lang) < 1 {
 		lang[0] = "en"
 	}
@@ -54,10 +60,44 @@ func Separate(N interface{}, lang ...string) (string, error) {
 		if n[len(n)-1:len(n)] == "." {
 			n = n[0 : len(n)-1]
 		}
+		n = strings.Trim(n, " ")
 
 		if dec != "" {
 			n = n + "," + dec
 		}
+
+		return n, nil
+
+	case "fr":
+		// TO-DO space as separator
+		n = strings.ReplaceAll(n, ",", ".")
+
+		dec := ""
+
+		if strings.Index(n, ".") != -1 {
+			dec = n[strings.Index(n, ".")+1 : len(n)]
+			n = n[0:strings.Index(n, ".")]
+		}
+
+		for i := 0; i <= len(n); i = i + 4 {
+			a := n[0 : len(n)-i]
+			b := n[len(n)-i : len(n)]
+			n = a + "." + b
+		}
+
+		if n[0:1] == "." {
+			n = n[1:len(n)]
+		}
+
+		if n[len(n)-1:len(n)] == "." {
+			n = n[0 : len(n)-1]
+		}
+
+		if dec != "" {
+			n = n + "," + dec
+		}
+
+		n = strings.ReplaceAll(n, ".", " ")
 
 		return n, nil
 
