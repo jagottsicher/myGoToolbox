@@ -5,7 +5,7 @@ myGoToolbox is package which contains a collection of useful functions and handy
 Thousands s mainly consists of the function Separate which adds thousands separators to numbers. It takes two arguments: the number and a language-code you want to use. It returns a string containing the number with thousands separators which are used in that region/country. Actually Separate supports English and German. Feels free to open an issue and request more notations.
 
 ```
-func Separate(N interface{}, lang string) string
+func Separate(N interface{}, lang string) (string, error)
 ```
 
 Examples:
