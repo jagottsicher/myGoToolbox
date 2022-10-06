@@ -10,7 +10,7 @@ func Separate(N interface{}, lang string) (string, error)
 
 Examples:
 ```
-    n := 1023.123456789
+	n := 1023.123456789
 	output_en, _ := Separate(n, "en")
 	output_de, _ := Separate(n, "de")
 	fmt.Println(output_en)
