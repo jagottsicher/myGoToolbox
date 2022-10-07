@@ -1,5 +1,5 @@
 # myGoToolbox [![Actions Status](https://github.com/jagottsicher/myGoToolbox/workflows/Go/badge.svg)](https://github.com/jagottsicher/myGoToolbox/actions) [![GoDoc](https://godoc.org/github.com/jagottsicher/myGoToolbox?status.svg)](https://godoc.org/github.com/jagottsicher/myGoToolbox)
-myGoToolbox is package which contains a collection of useful functions and handy tools for recurring tasks in your Go projects. myGoToolbox is aiming at as clear and clean Go code as possible and preferable to make use of built-in packages only and to import as reasonably maintained and simple packages only to reduce the impact of broken dependencies to a minimum.
+myGoToolbox is a package which contains a collection of useful functions and handy tools for recurring tasks in your Go projects. myGoToolbox is aiming at as clear and clean Go code as possible, preferably to make use of built-in packages only and to import as reasonably maintained and simple packages only to reduce the impact of broken dependencies to a minimum.
 
 ## Install
 ```sh
@@ -32,4 +32,4 @@ Examples:
 
 ```
 #### terminal.go
-`Clearscreen()` empties the terminal screen independently from the underlying operation system by calling the OS's builtin functions works smootly even on both Windows' cmd.exe and powershell.
+`Clearscreen()` empties the terminal screen independently from the underlying operation system by calling the OS's built-in functions works smootly even on both Windows' cmd.exe and powershell.
