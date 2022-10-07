@@ -16,9 +16,9 @@ func init() {
 	}
 }
 
-// EscapeStringRegex returns a string that escapes all regular expression metacharacters
-// inside the aurgumnent of type string like `\.+*?()|[]{}^` and returns a string which
-// is a regular expression matching the literal text.
+// EscapeStringRegex returns a string that escapes all regular expression
+// metacharacters inside the argument of type `string` like \.+*?()|[]{}^ and
+// returns a `string` which is a regular expression matching the literal text.
 func EscapeStringRegex(s string) string {
 	// A byte loop is correct because all metacharacters are ASCII.
 	var i int
