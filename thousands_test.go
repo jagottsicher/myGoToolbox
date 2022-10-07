@@ -6,6 +6,7 @@ import (
 )
 
 func ExampleSeparate() {
+
 	n := 1232323.123456789
 	output_en, _ := Separate(n, "en")
 	output_de, _ := Separate(n, "de")

@@ -1,3 +1,3 @@
-module github.com/jagottsicher/myGoToolbox
+module github.com/jagottsicher/mygotoolbox
 
 go 1.19
