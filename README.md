@@ -17,10 +17,19 @@ func Separate(N interface{}, lang string) (string, error)
 
 Examples:
 ```
+package main
+
+import (
+	"fmt"
+
+	"github.com/jagottsicher/myGoToolbox"
+)
+
+func main() {
 	n := 1232323.123456789
-	output_en, _ := Separate(n, "en")
-	output_de, _ := Separate(n, "de")
-	output_fr, _ := Separate(n, "fr")
+	output_en, _ := myGoToolbox.Separate(n, "en")
+	output_de, _ := myGoToolbox.Separate(n, "de")
+	output_fr, _ := myGoToolbox.Separate(n, "fr")
 
 	fmt.Println(output_en)
 	fmt.Println(output_de)
@@ -29,7 +38,7 @@ Examples:
 	// 1,232,323.123456789
 	// 1.232.323,123456789
 	// 1 232 323,123456789
-
+}
 ```
 #### terminal.go
 `Clearscreen()` empties the terminal screen independently from the underlying operation system by calling the OS's built-in functions works smootly even on both Windows' cmd.exe and powershell.
