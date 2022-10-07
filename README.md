@@ -26,3 +26,5 @@ Examples:
 	// 1 232 323,123456789
 
 ```
+## terminal.go
+`Clearscreen()` empties the terminal screen independently from the underlying operation system by calling the OS's builtin functions works smootly even on both Windows' cmd.exe and powershell.
