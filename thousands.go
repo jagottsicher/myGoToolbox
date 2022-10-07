@@ -7,15 +7,21 @@ import (
 	"strings"
 )
 
-// Separate takes a numerical value and a language code and returns a string with thousands separators as commonly used in this lang/region. Actually Separate supports English, German and French (intl. recommended) notation. Invalid or empty langugae codes language code return English notation as default/fallback. Scientific notation for small and big numbers is taken care of.
+// Separate takes a numerical value and a language code and returns a string with thousands separators as commonly used in this lang/region. Actually supports English, German and French (intl. recommended) notation. Invalid or empty language codes let Separate return English notation as default/fallback. Scientific notation for very small or very big numbers is taken care of.
 func Separate(N interface{}, lang ...string) (string, error) {
 
+	// handles all numeric types, also unsigneds (and byte and rune as they're aliases)
 	switch N.(type) {
 	case int:
+	case uint:
 	case int16:
 	case int32:
 	case int64:
 	case int8:
+	case uint16:
+	case uint32:
+	case uint64:
+	case uint8:
 	case float32:
 	case float64:
 	default:
@@ -70,7 +76,7 @@ func Separate(N interface{}, lang ...string) (string, error) {
 		return n, nil
 
 	case "fr":
-		// TO-DO space as separator
+		// TO-DO space as separator some more sophisticated
 		n = strings.ReplaceAll(n, ",", ".")
 
 		dec := ""
@@ -97,7 +103,7 @@ func Separate(N interface{}, lang ...string) (string, error) {
 		if dec != "" {
 			n = n + "," + dec
 		}
-
+		// like German but exchange all "." to whitespaces. some lazy, I know :)
 		n = strings.ReplaceAll(n, ".", " ")
 
 		return n, nil
