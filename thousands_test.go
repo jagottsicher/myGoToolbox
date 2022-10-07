@@ -6,14 +6,20 @@ import (
 )
 
 func ExampleSeparate() {
-	n := 1023.123456789
+	n := 1232323.123456789
 	output_en, _ := Separate(n, "en")
 	output_de, _ := Separate(n, "de")
+	output_fr, _ := Separate(n, "fr")
+
 	fmt.Println(output_en)
 	fmt.Println(output_de)
+	fmt.Println(output_fr)
+
 	// Output:
-	// 1,023.123456789
-	// 1.023,123456789
+	// 1,232,323.123456789
+	// 1.232.323,123456789
+	// 1 232 323,123456789
+
 }
 
 // Table tests for en, de, and fr and malicious/missing language codes

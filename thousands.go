@@ -1,3 +1,4 @@
+// myGoToolbox is package which contains a collection of useful functions and handy tools for recurring tasks in your Go projects
 package myGoToolbox
 
 import (
@@ -6,7 +7,7 @@ import (
 	"strings"
 )
 
-// Separate takes a numerical value and a language code and returns a string with thousands separators with in that country usually used notation. Actually Separate supports English, German and French (intl. recommended) notation. Invalid or empty langugae code language code return English notation as default/fallback.Scientific notation for small and big numbers is taken care of.
+// Separate takes a numerical value and a language code and returns a string with thousands separators as commonly used in this lang/region. Actually Separate supports English, German and French (intl. recommended) notation. Invalid or empty langugae codes language code return English notation as default/fallback. Scientific notation for small and big numbers is taken care of.
 func Separate(N interface{}, lang ...string) (string, error) {
 
 	switch N.(type) {
