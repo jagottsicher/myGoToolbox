@@ -6,6 +6,7 @@ import (
 	"strings"
 )
 
+// Separate takes a numerical value and a language code and returns a string with thousands separators with in that country usually used notation. Actually Separate supports English, German and French (intl. recommended) notation. Invalid or empty langugae code language code return English notation as default/fallback.Scientific notation for small and big numbers is taken care of.
 func Separate(N interface{}, lang ...string) (string, error) {
 
 	switch N.(type) {
@@ -22,13 +23,12 @@ func Separate(N interface{}, lang ...string) (string, error) {
 
 	// convert to a string
 	n := fmt.Sprintf("%v", N)
-	// TO-DO deal with scientific notation
+
+	// dealing with scientific notation
 	if strings.Contains(n, "e") {
 		nAsFlaot64, _ := strconv.ParseFloat(n, 64)
 		n = strconv.FormatFloat(nAsFlaot64, 'f', -1, 64)
 	}
-
-	//	n := fmt.Sprint(strconv.FormatFloat(float64(N), 'f', -1, 64))
 
 	// if lang omitted English is default
 	if len(lang) < 1 {
