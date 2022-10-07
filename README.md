@@ -11,7 +11,7 @@ go get github.com/jagottsicher/myGoToolbox
 `EscapeStringRegex` EscapeStringRegex returns a string that escapes all regular expression metacharacters inside the aurgumnent of type string like `\.+*?()|[]{}^` and returns a string which is a regular expression matching the literal text.
 
 ```
-func Separate(N interface{}, lang string) (string, error)
+func EscapeStringRegex(s string) string
 ```
 
 Example:
@@ -34,6 +34,10 @@ func main() {
 ```
 #### terminal.go
 `Clearscreen()` empties the terminal screen independently from the underlying operation system by calling the OS's built-in functions works smootly even on both Windows' cmd.exe and powershell.
+```
+Clearscreen()
+```
+
 #### thousands.go
 thousands.go mainly consists of the function `Separate()` which adds thousands separators to numbers. It takes two arguments: the number and a language-code you want to use. It returns a string with thousands separators as commonly used in this lang/region. Actually `Separate()` supports English, German and French (intl. recommended) notation. More information about [decimal separators](https://en.wikipedia.org/wiki/Decimal_separator). 
 
